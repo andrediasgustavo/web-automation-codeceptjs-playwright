@@ -34,6 +34,14 @@ Automação de teste de login usando CodeceptJS e Playwright.
 - o projeto está configurado para rodar com Playwright em Chromium
 - `output/` e `node_modules/` estão ignorados pelo Git
 
+## CI / GitHub Actions
+
+- Workflow: `.github/workflows/ci.yml` — executa em `push` e `pull_request` na branch `main` e pode ser disparado manualmente via `workflow_dispatch`.
+- O que roda: checkout, instalação das dependências (`npm ci`), instalação dos binários do Playwright (`npx playwright install --with-deps`) e execução dos testes com `npx codeceptjs run --steps`.
+- Cache: o workflow usa cache de `npm` quando `package-lock.json` está presente para acelerar builds.
+- Logs e artefatos: o diretório `output/` é criado durante os testes; consulte a UI do GitHub Actions para baixar logs e artefatos.
+- Como disparar: pushes para `main`, PRs para `main` ou manualmente em Actions → Run workflow.
+
 ## Exemplos rápidos
 
 - Trecho de teste (`tests/login_test.js`):
