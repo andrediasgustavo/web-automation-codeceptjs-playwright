@@ -1,7 +1,9 @@
 // in this file you can append custom step methods to 'I' object
 const { actor } = require('codeceptjs');
 
-module.exports = function() {
+module.exports = async function() {
+  const mod = await import('codeceptjs');
+  const actor = mod.actor;
   return actor({
 
     // Define custom steps here, use 'this' to access default methods of I.
