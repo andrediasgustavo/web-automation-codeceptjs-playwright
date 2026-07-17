@@ -1,8 +1,8 @@
-import { actor } from 'codeceptjs';
+const { actor } = require('codeceptjs');
 
 const I = actor();
 
-export default {
+module.exports = {
   locators: {
     openLogin: ' Login',
     loginHeader: 'Login',

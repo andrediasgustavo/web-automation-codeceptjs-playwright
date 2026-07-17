@@ -1,5 +1,5 @@
 /** @type {CodeceptJS.MainConfig} */
-export const config = {
+const config = {
   tests: './tests/*_test.js',
   output: './output',
   helpers: {
@@ -17,3 +17,5 @@ export const config = {
   plugins: {},
   name: 'project1'
 }
+
+module.exports = config;
