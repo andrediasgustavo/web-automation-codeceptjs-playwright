@@ -17,6 +17,10 @@ Automação de teste de login usando CodeceptJS e Playwright.
    ```bash
    npm install
    ```
+   Após instalar dependências, instale os binários do Playwright:
+   ```bash
+   npx playwright install --with-deps
+   ```
 2. Rode a suíte de testes:
    ```bash
    npx codeceptjs run
@@ -46,23 +50,14 @@ Scenario('Login with success', ({ loginPage }) => {
 ```
 
 - Trecho do Page Object (`pages/login_page.js`):
-
 ```javascript
-export default {
-   locators: {
-      userField: '#user',
-      passwordField: '#password',
-      loginButton: '#btnLogin',
-   },
-   open() {
-      I.amOnPage('/');
-      I.click(this.locators.openLogin);
-      I.waitForText(this.locators.loginHeader);
-   },
-   loginWithCredentials(email, pass) {
-      I.fillField(this.locators.userField, email);
-      I.fillField(this.locators.passwordField, pass);
-      I.click(this.locators.loginButton);
-   }
-};
+// Exemplo de uso a partir dos testes (não expõe implementação interna)
+Before(({ loginPage }) => {
+  loginPage.open();
+});
+
+Scenario('Login with success', ({ loginPage }) => {
+  loginPage.loginWithCredentials('user@example.com', 'pass123');
+  loginPage.seeSuccess();
+});
 ```
