@@ -29,3 +29,40 @@ Automação de teste de login usando CodeceptJS e Playwright.
 ## Observações
 - o projeto está configurado para rodar com Playwright em Chromium
 - `output/` e `node_modules/` estão ignorados pelo Git
+
+## Exemplos rápidos
+
+- Trecho de teste (`tests/login_test.js`):
+
+```javascript
+Before(({ loginPage }) => {
+   loginPage.open();
+});
+
+Scenario('Login with success', ({ loginPage }) => {
+   loginPage.loginWithCredentials('user@example.com', 'pass123');
+   loginPage.seeSuccess();
+});
+```
+
+- Trecho do Page Object (`pages/login_page.js`):
+
+```javascript
+export default {
+   locators: {
+      userField: '#user',
+      passwordField: '#password',
+      loginButton: '#btnLogin',
+   },
+   open() {
+      I.amOnPage('/');
+      I.click(this.locators.openLogin);
+      I.waitForText(this.locators.loginHeader);
+   },
+   loginWithCredentials(email, pass) {
+      I.fillField(this.locators.userField, email);
+      I.fillField(this.locators.passwordField, pass);
+      I.click(this.locators.loginButton);
+   }
+};
+```
