@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+
+# CodeceptJS output
+output/
+
+# Playwright directories
+playwright-report/
+playwright/.cache/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Dependency directories
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Coverage
+coverage/
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
