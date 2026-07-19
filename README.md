@@ -1,4 +1,4 @@
-# Project1
+# Web Automation with Codeceptjs/Playwright
 
 Automação de teste de login usando CodeceptJS e Playwright.
 
