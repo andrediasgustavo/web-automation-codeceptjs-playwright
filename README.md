@@ -1,50 +1,50 @@
-# Web Automation with Codeceptjs/Playwright
+# Web Automation with CodeceptJS/Playwright
 
-Automação de teste de login usando CodeceptJS e Playwright.
+Login test automation using CodeceptJS and Playwright.
 
-## O que faz
-- testa o fluxo de login em uma aplicação de exemplo
-- valida sucesso e erros de login com diferentes combinações de campos
+## What it does
+- tests the login flow in a sample application
+- validates login success and errors with different field combinations
 
-## Estrutura
-- `codecept.conf.js` — configuração do CodeceptJS e URL base
-- `tests/login_test.js` — cenários de login
-- `pages/login_page.js` — Page Object para a página de login
-- `.gitignore` — arquivos e pastas que não devem subir para o Git
+## Structure
+- `codecept.conf.js` — CodeceptJS configuration and base URL
+- `tests/login_test.js` — login scenarios
+- `pages/login_page.js` — Page Object for the login page
+- `.gitignore` — files and folders that should not be committed to Git
 
-## Como executar
-1. Instale dependências:
+## How to run
+1. Install dependencies:
    ```bash
    npm install
    ```
-   Após instalar dependências, instale os binários do Playwright:
+   After installing dependencies, install the Playwright binaries:
    ```bash
    npx playwright install --with-deps
    ```
-2. Rode a suíte de testes:
+2. Run the test suite:
    ```bash
    npx codeceptjs run
    ```
-3. Rode com passos visíveis:
+3. Run with visible steps:
    ```bash
    npx codeceptjs run --steps
    ```
 
-## Observações
-- o projeto está configurado para rodar com Playwright em Chromium
-- `output/` e `node_modules/` estão ignorados pelo Git
+## Notes
+- the project is configured to run with Playwright on Chromium
+- `output/` and `node_modules/` are ignored by Git
 
 ## CI / GitHub Actions
 
-- Workflow: `.github/workflows/ci.yml` — executa em `push` e `pull_request` na branch `main` e pode ser disparado manualmente via `workflow_dispatch`.
-- O que roda: checkout, instalação das dependências (`npm ci`), instalação dos binários do Playwright (`npx playwright install --with-deps`) e execução dos testes com `npx codeceptjs run --steps`.
-- Cache: o workflow usa cache de `npm` quando `package-lock.json` está presente para acelerar builds.
-- Logs e artefatos: o diretório `output/` é criado durante os testes; consulte a UI do GitHub Actions para baixar logs e artefatos.
-- Como disparar: pushes para `main`, PRs para `main` ou manualmente em Actions → Run workflow.
+- Workflow: `.github/workflows/ci.yml` — runs on `push` and `pull_request` to the `main` branch and can be triggered manually via `workflow_dispatch`.
+- What runs: checkout, dependency installation (`npm ci`), Playwright binaries installation (`npx playwright install --with-deps`), and test execution with `npx codeceptjs run --steps`.
+- Cache: the workflow uses npm cache when `package-lock.json` is present to speed up builds.
+- Logs and artifacts: the `output/` directory is created during tests; check the GitHub Actions UI to download logs and artifacts.
+- How to trigger: pushes to `main`, PRs to `main`, or manually in Actions → Run workflow.
 
-## Exemplos rápidos
+## Quick examples
 
-- Trecho de teste (`tests/login_test.js`):
+- Test snippet (`tests/login_test.js`):
 
 ```javascript
 Before(({ loginPage }) => {
@@ -57,9 +57,9 @@ Scenario('Login with success', ({ loginPage }) => {
 });
 ```
 
-- Trecho do Page Object (`pages/login_page.js`):
+- Page Object snippet (`pages/login_page.js`):
 ```javascript
-// Exemplo de uso a partir dos testes (não expõe implementação interna)
+// Example usage from the tests (does not expose internal implementation)
 Before(({ loginPage }) => {
   loginPage.open();
 });
